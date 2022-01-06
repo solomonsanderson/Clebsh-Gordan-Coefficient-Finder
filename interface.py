@@ -43,7 +43,7 @@ class MainWindow(QMainWindow):
     
     def _createResultLabel(self):
         output = "?"
-        self.result = QLabel(f"Output: {output}")
+        self.result = QLabel(f"Clepsh-Gordan Coefficient: {output}")
     
     def _createGetButton(self):
         self.button = QPushButton("GET")
@@ -63,7 +63,12 @@ class MainWindow(QMainWindow):
         M = self.textM.text()
 
         result = query(j1, j2, m1, m2, J, M)
-        self.result.setText(result)
+        if result[0] == '-':
+            self.result.setText(F'Clepsh-Gordan Coefficient: -√{result[1:]}')
+
+        else:
+            self.result.setText(F'Clepsh-Gordan Coefficient: √{result}')
+                            
 
         
 

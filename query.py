@@ -10,13 +10,21 @@ print("Connected")
 
 
 def query(j1, j2, m1, m2, J, M):
-    con = sqlite3.connect('CG.db')
-    cur = con.cursor()
-    query  = str(f"SELECT coefficient FROM coefficients WHERE j1= ? AND j2= ? AND m1= ? AND m2= ? AND J= ? AND M= ? ")
-    params = (j1, j2, m1, m2, J, M)
-    cur.execute(query, params)
-    result = cur.fetchall()[0][0]
-    cur.close()
+    try:
+        con = sqlite3.connect('CG.db')
+        cur = con.cursor()
+    except:
+        result = "Connection to database failed."
+    
+    try:
+        query  = str(f"SELECT coefficient FROM coefficients WHERE j1= ? AND j2= ? AND m1= ? AND m2= ? AND J= ? AND M= ? ")
+        params = (j1, j2, m1, m2, J, M)
+        cur.execute(query, params)
+        result = cur.fetchall()[0][0]
+        cur.close()
+    except:
+        result = "Value not found. Check query."
+    
     return result
 
 

@@ -3,7 +3,6 @@ In this program I aim to make a program with a database of the Clepsh-Gordan coe
 This is done using SQLite to make a database (see database.py) and PyQT5 to create a UI (see interface.py).
 
 Currently the program only includes the 1/2 x 1/2 coefficients as I have not added the rest to the database yet.
-It also has no error handling so as soon as an incorrect value is entered it crashes. I aim to fix this shortly
 
 the application is seen below:
 
