@@ -13,13 +13,45 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
 
         self.setWindowTitle("Clepsh-Gordan Coefficient finder")
-        self.setFixedSize(400, 300)
+        self.setFixedSize(400, 100)
         self.setWindowIcon(QtGui.QIcon("icon.png"))
+        self.generalLayout = QVBoxLayout()
+        self._centralWidget = QWidget(self)
+        self.setCentralWidget(self._centralWidget)
+        self._centralWidget.setLayout(self.generalLayout)
+        self._createTextbox()
+        self._createResultLabel()
+        self._createGetButton()
+
+    def _createTextbox(self):
+        self.textj1 = QLineEdit()
+        self.textj2 = QLineEdit()
+        self.textm1 = QLineEdit()
+        self.textm2 = QLineEdit()
+        self.textJ = QLineEdit()
+        self.textM = QLineEdit()
+        boxes = [self.textj1, self.textj2, self.textm1, self.textm2, self.textJ, self.textM]
+        labels = ['j_1', 'j_2', 'm_1','m_2', 'J', 'M']
+        layout  = QGridLayout()
+        for i in range(len(boxes)):
+            layout.addWidget(QLabel(labels[i], self), 0, i)
+            layout.addWidget(boxes[i], 1, i)
+        self.generalLayout.addLayout(layout)
+    
+    def _createResultLabel(self):
+        output = "?"
+        self.result = QLabel("Output: {output}")
+    
+    def _createGetButton(self):
+        self.button = QPushButton("GET")
+        layout = QGridLayout()
+        layout.addWidget(self.button, 0, 0)
+        layout.addWidget(self.result, 0, 1)
+        self.generalLayout.addLayout(layout)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
-
 
