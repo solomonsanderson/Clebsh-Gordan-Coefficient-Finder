@@ -1,12 +1,16 @@
 ## Clepsh-Gordan Coefficient finder ##
-In this program I aim to make a program with a database of the Clepsh-Gordan coefficients.
+This tool is designed to make finding Clepsh-Gordan coefficients easier.
 This is done using SQLite to make a database (see database.py) and PyQT5 to create a UI (see interface.py).
+
+I use Clephsh-Gordan coefficients in particle physics to calculate the bound state of 2 angular momentum states. To do this I use the equation below in which the Clepsh-Gordan coefficent is seen as C(j<sub>1</sub>, j<sub>2</sub>)<sup>(j)</sup><sub>m<sub>1</sub>,m<sub>2</sub></sub>:
+
+<image src = "assetts/equation.png">
 
 Currently the program only includes the 1/2 x 1/2 coefficients as I have not added the rest to the database yet.
 
-the application is seen below:
+The application is seen below:
 
-![](https://raw.githubusercontent.com/solomonsanderson/Clepsh-Gordan-Coefficient-Finder/master/Screenshot.png?token=APB64QKVE3WAGGKECZM3CH3B36HSO)
+<image src = "assetts\Screenshot.png">
 
 For more information on Clepsh-Gordan coefficients see this link: https://en.wikipedia.org/wiki/Clebsch%E2%80%93Gordan_coefficients.
 
