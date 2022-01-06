@@ -6,21 +6,19 @@ import sqlite3
 import pandas as pd 
 
 
-con = sqlite3.connect('CG.db')
-cur = con.cursor()
 print("Connected")
 
 
 def query(j1, j2, m1, m2, J, M):
+    con = sqlite3.connect('CG.db')
+    cur = con.cursor()
     query  = str(f"SELECT coefficient FROM coefficients WHERE j1= ? AND j2= ? AND m1= ? AND m2= ? AND J= ? AND M= ? ")
     params = (j1, j2, m1, m2, J, M)
-
-    # query = "SELECT * FROM coefficients"
     cur.execute(query, params)
-    result = cur.fetchall()
-    print(result)
-    # return coefficient
+    result = cur.fetchall()[0][0]
     cur.close()
+    return result
+
 
 query('1/2',"1/2", "-1/2", "1/2", 0, 0)
 

@@ -8,6 +8,9 @@ import PyQt5
 from PyQt5 import QtGui
 from PyQt5.QtWidgets import *
 
+
+from query import query
+
 class MainWindow(QMainWindow):
     def __init__(self, parent = None):
         super().__init__(parent)
@@ -40,7 +43,7 @@ class MainWindow(QMainWindow):
     
     def _createResultLabel(self):
         output = "?"
-        self.result = QLabel("Output: {output}")
+        self.result = QLabel(f"Output: {output}")
     
     def _createGetButton(self):
         self.button = QPushButton("GET")
@@ -48,6 +51,23 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.button, 0, 0)
         layout.addWidget(self.result, 0, 1)
         self.generalLayout.addLayout(layout)
+
+        self.button.clicked.connect(self.onClick)
+
+    def onClick(self):
+        j1 = self.textj1.text()
+        j2 = self.textj2.text()
+        m1 = self.textm1.text()
+        m2 = self.textm2.text()
+        J = self.textJ.text()
+        M = self.textM.text()
+
+        result = query(j1, j2, m1, m2, J, M)
+        self.result.setText(result)
+
+        
+
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

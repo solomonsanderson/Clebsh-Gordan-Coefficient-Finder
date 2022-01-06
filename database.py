@@ -9,7 +9,7 @@ import pandas as pd
 con = sqlite3.connect('CG.db')  # Connecting to the database
 cur = con.cursor()  # Creating cursor object
 
-# cur.execute('CREATE TABLE coefficients (j1 text, j2 text, m1 text, m2 text, J text, M text)')
+cur.execute('CREATE TABLE coefficients (j1 text, j2 text, m1 text, m2 text, J text, M text, coefficient text)')
 # Columns: [j1, j2, m1, m2, J, M]
 # cur.execute('ALTER TABLE coefficients ADD coefficient text;')
 
