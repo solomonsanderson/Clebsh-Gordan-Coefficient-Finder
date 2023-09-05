@@ -10,7 +10,7 @@ Currently the program only includes the 1/2 x 1/2 coefficients as I have not add
 
 The application is seen below:
 
-<image src = "assetts\Screenshot.png">
+<image src = "assetts/Screenshot.png">
 
 For more information on Clebsh-Gordan coefficients see this link: https://en.wikipedia.org/wiki/Clebsch%E2%80%93Gordan_coefficients.
 
